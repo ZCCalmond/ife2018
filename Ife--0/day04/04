@@ -16,3 +16,9 @@ a:active 链接被点击的时刻
 
 a：hover 必须在a：link和a:visited 之后
 a:active必须在hover之前
+
+4.伪类
+a.red.visited{color:white}
+css- :first-child 匹配第一个子元素
+css- :lang 向指定lang属性的元素添加样式
+css- :focus 向拥有键盘输入焦点的元素添加样式
