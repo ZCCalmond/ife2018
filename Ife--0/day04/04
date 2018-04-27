@@ -1,1 +1,9 @@
+1.background
+主要是对背景的图片，颜色，图片的x/y轴的扩展分析，背景的定位进行分析。
+其中掌握的不太熟练的是背景的定位，本次在这个上面有所了解了。
 
+2.css列表属性
+list-style
+list-style-image：将标志设为一个图像
+list-style-position：标志定位，并不熟练
+list-style-type： 设置方块之之类的标志
