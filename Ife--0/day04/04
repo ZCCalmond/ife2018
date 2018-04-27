@@ -7,3 +7,12 @@ list-style
 list-style-image：将标志设为一个图像
 list-style-position：标志定位，并不熟练
 list-style-type： 设置方块之之类的标志
+
+3.a标签的东西
+a:link 没有被访问的
+a:visited 用户已访问的
+a:hover 用户鼠标位于链接的上方
+a:active 链接被点击的时刻
+
+a：hover 必须在a：link和a:visited 之后
+a:active必须在hover之前
