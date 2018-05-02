@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: rgb(113, 144, 243);
+    height: 1000px;
+    width: 200px;
+    float: left;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    display: block;
+}
+
+h1 span {
+    display: block;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.inner {
+    float: left;
+    margin-left: 20px;
+}
+
+h3 {
+    display: block;
+    margin-top: 30px;
+    font-size: 30px;
+}
+
+h4,
+p {
+    margin-top: 10px;
+}
+
+.container::after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+}
