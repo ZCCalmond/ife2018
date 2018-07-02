@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>17-18 task2</title>
+</head>
+
+<body>
+    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <button id="trans-btn">转化为二进制</button>
+    <p id="result">运算结果</p>
+    <script>
+        function dec2bin(decNumber) {
+            // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
+            if (decNumber < 0) {
+                return "错误，数字不能是负数"
+            } else {
+                var k, q;
+                var d = [];
+                var s;
+                while (decNumber > 0) {
+                    k = Math.floor(decNumber / 2);
+                    q = decNumber % 2;
+                    decNumber = k;
+                    d.push(q);
+                }
+                // return d.toString();
+                //输出的是字符串
+                var m = d.join('');
+                return Number(m);
+            }
+        }
+
+        // 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
+        // Some coding
+        document.getElementById('trans-btn').onclick = function() {
+            var m = document.getElementById('dec-number').value;
+            var n = dec2bin(m);
+            console.log(typeof n);
+            document.getElementById("result").innerHTML = n;
+        }
+    </script>
+</body>
+
+</html>

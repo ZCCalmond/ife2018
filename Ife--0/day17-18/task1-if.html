@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>day17-18</title>
+</head>
+
+<body>
+    <input id="first-number" type="number" value="1" placeholder="第一个数字">
+    <input id="second-number" value="2" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+        // var fnum = document.getElementById('first-number').value;
+        // var snum = document.getElementById('second-number').value;
+        function add(fnum, snum) {
+            fnum = Number(fnum);
+            snum = Number(snum);
+            if (!isNaN(fnum) && !isNaN(snum)) {
+                return fnum + snum;
+            } else {
+                return "不是一个数字"
+            }
+        };
+
+        function minus(fnum, snum) {
+            fnum = Number(fnum);
+            snum = Number(snum);
+            if (!isNaN(fnum) && !isNaN(snum)) {
+                return fnum - snum;
+            } else {
+                return "不是一个数字"
+            }
+        };
+
+        function times(fnum, snum) {
+            fnum = Number(fnum);
+            snum = Number(snum);
+            if (!isNaN(fnum) && !isNaN(snum)) {
+                return fnum * snum;
+            } else {
+                return "不是一个数字"
+            }
+        };
+
+        function divide(fnum, snum) {
+            fnum = parseFloat(fnum);
+            snum = parseFloat(snum);
+            if (snum == 0) {
+                console.log("err");
+                return "除数不可以为0";
+            } else {
+                return funm / snum;
+            }
+
+        };
+        document.getElementById('add-btn').onclick = function() {
+            document.getElementById('result').innerHTML = add(document.getElementById('first-number').value, document.getElementById('second-number').value)
+        };
+        document.getElementById('minus-btn').onclick = function() {
+            var fnum = document.getElementById('first-number').value;
+            var snum = document.getElementById('second-number').value;
+            document.getElementById('result').innerText = minus(fnum, snum);
+        };
+        document.getElementById('times-btn').onclick = function() {
+            var fnum = document.getElementById('first-number').value;
+            var snum = document.getElementById('second-number').value;
+            document.getElementById('result').innerText = times(fnum, snum);
+        };
+        document.getElementById('divide-btn').onclick = function() {
+            var fnum = document.getElementById('first-number').value;
+            var snum = document.getElementById('second-number').value;
+            document.getElementById('result').innerText = divide(fnum, snum);
+        };
+    </script>
+</body>
+
+</html>
