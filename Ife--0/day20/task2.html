@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>task2</title>
+    <style>
+        select {
+            display: show;
+            /* display: none; */
+        }
+        
+        .class1 {
+            display: none;
+        }
+        
+        .class2 {
+            display: show;
+        }
+    </style>
+</head>
+
+<body>
+    <label>
+        <input id="school" name="status" type="radio" >
+        School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio">
+        Company
+    </label>
+
+    <select id="school-select">     
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">        
+        <option>百度</option>
+        <option>爱奇艺</option>        
+    </select>
+
+    <script>
+        //school
+        var school = document.getElementById('school');
+        school.addEventListener('change', f1);
+
+        function f1() {
+            document.getElementById('school-select').setAttribute('class', 'class2');
+            document.getElementById('company-select').setAttribute('class', 'class1');
+        }
+
+
+        // company
+        var company1 = document.getElementById('company');
+        company1.addEventListener('change', f2);
+
+        function f2() {
+            document.getElementById('school-select').setAttribute('class', 'class1');
+            document.getElementById('company-select').setAttribute('class', 'class2');
+        }
+    </script>
+</body>
+
+</html
