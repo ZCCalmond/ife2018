@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task1</title>
+</head>
+
+<body>
+    <input id="name" type="text" onkeypress="f1(event)">
+    <button id="submit-btn">Submit</button>
+
+    <script>
+        var btn = document.getElementById("submit-btn");
+
+        function f1(e) {
+            var name = document.getElementById('name').value;
+            if (window.event) {
+                e = window.event;
+            };
+            if (e.keyCode == 13) {
+                // alert('aaa');
+                // console.log("hahah");
+                console.log(name);
+            } else if (e.keyCode == 32) {
+                // alert('bbb')
+                //空格键消除
+                document.getElementById('name').value = '';
+            }
+        }
+
+        function f2() {
+            var name = document.getElementById('name').value;
+            console.log(name);
+        }
+        btn.addEventListener('click', f2);
+    </script>
+</body>
+
+</html>
