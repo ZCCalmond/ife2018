@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task5-1</title>
+</head>
+
+<body>
+    <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+    <button id="fade-btn">淡出</button>
+
+    <script>
+        var btn = document.getElementById("fade-btn");
+        var change = document.getElementById("fade-obj");
+        btn.addEventListener('click', f0);
+        var m = 1;
+
+        // 重要！
+        var flag
+
+        function f0() {
+            flag = setInterval("f1()", 100);
+        }
+
+        function f1() {
+            if (btn.innerText == '淡出') {
+                change.style.opacity = f2();
+            } else if (btn.innerText == "淡入") {
+                change.style.opacity = f3();
+            }
+        }
+
+        function f2() {
+            if (m > 0) {
+                m = m - 0.1;
+                console.log(m);
+                return m;
+            } else {
+                btn.innerText = '淡入';
+                clearInterval(flag);
+                return 0;
+            }
+        }
+
+        function f3() {
+            if (m < 1) {
+                m = m + 0.1;
+                console.log(m);
+                return m;
+            } else {
+                btn.innerText = '淡出';
+                clearInterval(flag);
+                return 1;
+            }
+        }
+    </script>
+</body>
+
+</html>
