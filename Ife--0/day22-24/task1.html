@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task1</title>
+    <style>
+        button {
+            display: block;
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label>
+        <input id="num-a" type="text">
+        <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b" type="text">
+    </div>
+    <div id="btn1">
+        <button id="1">判断当前选中的输入框输入内容是否为数字</button>
+        <button id="2">把 A 四舍五入为 B 个小数位数的数字</button>
+        <button id="3">当前选中数字的绝对值</button>
+        <button id="4">对当前选中的数字进行上舍入</button>
+        <button id="5">对当前选中的数字进行下舍入</button>
+        <button id="6">把当前选中的数字四舍五入为最接近的整数</button>
+        <button id="7">返回 A 和 B 中的最高值</button>
+        <button id="8">返回 A 和 B 中的最低值</button>
+    </div>
+    <p id="result"></p>
+
+
+    <script>
+        // test板块script
+        // var btn = document.getElementById("btn1");
+        var btn = document.querySelectorAll("button")[3];
+        console.log(btn);
+        //这种形式，无法做事件代理，只能给每一个button一个id，然后使用事件代理嘛？
+    </script>
+
+    <script>
+        var result = document.getElementById("result");
+        var btn1 = document.getElementById("btn1");
+        btn1.addEventListener('click', function(ev) {
+            var ev = ev || window.event;
+            var target = ev.target || ev.srcElement;
+            if (target.nodeName.toLocaleLowerCase() == 'button') {
+                switch (target.id) {
+                    case '1':
+                        var a = geta();
+                        var b = getb();
+                        b1(a, b);
+                        // result.innerHTML = a + b;
+                        break;
+                    case '2':
+                        b2();
+                        break;
+                    case '3':
+                        b3();
+                        break;
+                    case '4':
+                        b4();
+                        break;
+                    case '5':
+                        b5();
+                        break;
+                    case '6':
+                        b6();
+                        break;
+                    case '7':
+                        b7();
+                        break;
+                    case '8':
+                        b8();
+                        break;
+
+                }
+            }
+        })
+
+        function geta() {
+            var a = document.getElementById("num-a").value;
+            return Number(a);
+        }
+
+        function getb() {
+            var b = document.getElementById("num-b").value;
+            return Number(b);
+        }
+
+        function b1(a, b) {
+            if (a.toString() == "NaN" || b.toString() == "NaN") {
+                result.innerHTML = "NaN";
+                console.log("error");
+            } else {
+                result.innerHTML = "Number"
+            }
+        }
+
+        function b2() {
+            result.innerHTML = geta().toFixed(getb());
+        }
+
+        function b3() {
+            if (document.getElementById("radio-a").checked) {
+                result.innerHTML = Math.abs(geta());
+            } else if (document.getElementById("radio-b").checked) {
+                result.innerHTML = Math.abs(getb());
+            }
+        }
+
+        function b4() {
+            if (document.getElementById("radio-a").checked) {
+                result.innerHTML = Math.ceil(geta());
+            } else if (document.getElementById("radio-b").checked) {
+                result.innerHTML = Math.ceil(getb());
+            }
+        }
+
+        function b5() {
+            if (document.getElementById("radio-a").checked) {
+                result.innerHTML = Math.floor(geta());
+            } else if (document.getElementById("radio-b").checked) {
+                result.innerHTML = Math.floor(getb());
+            }
+        }
+
+        function b6() {
+            if (document.getElementById("radio-a").checked) {
+                result.innerHTML = Math.round(geta());
+            } else if (document.getElementById("radio-b").checked) {
+                result.innerHTML = Math.round(getb());
+            }
+        }
+
+        function b7() {
+            result.innerHTML = Math.max(geta(), getb());
+        }
+
+        function b8() {
+            result.innerHTML = Math.min(geta(), getb());
+        }
+    </script>
+
+
+
+    <script>
+        // 问题总结：1.代理没有id的问题
+
+        // 经验总结：
+        // 1.input.value--> string
+        // 2.input radio --->checked:来看选中状态，设置函数
+        // 3,numa.toFixed(numB):把a四舍五入到指定位数的数字
+    </script>
+</body>
+
+</html>
