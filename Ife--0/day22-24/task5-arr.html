@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task5-arr</title>
+</head>
+
+<body>
+    <input id="queue-input" type="text">
+    <p id="queue-cont">队列内容：apple-&gt;pear</p>
+    <div id="btn">
+        <button id="in-btn">入队</button>
+        <button id="out-btn">出队</button>
+        <button id="font-btn">打印队头元素内容</button>
+        <button id="empty-btn">判断队列是否为空</button>
+    </div>
+    <script>
+        var queue = ["apple", "pear"];
+        var queueInput = document.getElementById("queue-input");
+        var queueCont = document.getElementById("queue-cont");
+        var btn = document.getElementById("btn");
+        btn.addEventListener('click', function(ev) {
+            var ev = ev || window.ev;
+            var target = ev.target || ev.srcElement;
+            if (target.nodeName.toLocaleLowerCase() == 'button') {
+                switch (target.id) {
+                    case "in-btn":
+                        b1();
+                        console.log('test ok');
+                        break;
+                    case "out-btn":
+                        b2();
+                        break;
+                    case "font-btn":
+                        b3();
+                        break;
+                    case "empty-btn":
+                        b4();
+                        break;
+                }
+            }
+        })
+
+        function b1() {
+            queue.unshift(queueInput.value);
+            queueCont.innerHTML = queue;
+        }
+
+        function b2() {
+            queue.pop();
+            queueCont.innerHTML = queue;
+        }
+
+        function b3() {
+            var count = queue.length;
+            queueCont.innerHTML = queue[count - 1];
+        }
+
+        function b4() {
+            var count = queue.length;
+            if (count == 0) {
+                queueCont.innerHTML = "null";
+            }
+        }
+    </script>
+</body>
+
+</html>

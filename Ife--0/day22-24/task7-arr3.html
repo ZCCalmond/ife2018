@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task7-arr3</title>
+</head>
+
+<body>
+    <input id="stack-input" type="text">
+    <p id="stack-cont">栈内容：applelt;-pear</p>
+    <div id="btn">
+        <button id="push-btn">进栈</button>
+        <button id="pop-btn">退栈</button>
+        <button id="font-btn">打印栈顶元素内容</button>
+        <button id="empty-btn">判断栈是否为空</button>
+    </div>
+
+
+    <script>
+        var result;
+        var stack = ["apple", "pear"];
+        var stackInput = document.getElementById("stack-input");
+        var stackCont = document.getElementById("stack-cont");
+        var btn = document.getElementById("btn");
+        btn.addEventListener('click', function(ev) {
+            var ev = ev || window.ev;
+            var target = ev.target || ev.srcElement;
+            if (target.nodeName.toLocaleLowerCase() == 'button') {
+                switch (target.id) {
+                    case "push-btn":
+                        b1();
+                        console.log('test ok');
+                        break;
+                    case "pop-btn":
+                        b2();
+                        break;
+                    case "font-btn":
+                        b3();
+                        break;
+                    case "empty-btn":
+                        b4();
+                        break;
+                }
+            }
+        })
+
+        function b1() {
+            stack.unshift(stackInput.value);
+            result = stack.join("->");
+            stackCont.innerHTML = result;
+        }
+
+        function b2() {
+            stack.shift();
+            result = stack.join("->");
+            stackCont.innerHTML = result;
+        }
+
+        function b3() {
+            let count = stack.length;
+            stackCont.innerHTML = stack[count - 1];
+        }
+
+        function b4() {
+            var count = stack.length;
+            if (count == 0) {
+                stackCont.innerHTML = "null";
+            }
+        }
+
+
+        //经验：
+        //1.arr.join()之后，数组自身是不变化的，转换成的字符串可以存入一个变量里面
+    </script>
+</body>
+
+</html>
