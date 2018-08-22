@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task3-date2</title>
+</head>
+
+<body>
+    <p id="time"></p>
+    <button id="start">show time</button>
+    <button id="end">end time</button>
+
+    <script>
+        var timeshow = document.getElementById("time");
+        var start = document.getElementById("start");
+        var end = document.getElementById("end");
+        var show;
+        start.addEventListener("click", function() {
+            show = setInterval(f1, 1000);
+            // f1();
+        });
+        end.addEventListener('click', function() {
+            clearTimeout(show);
+        });
+
+        function f1() {
+            var today = new Date();
+            var year = today.getFullYear();
+
+            // 月份从0开始
+            var month = today.getMonth() + 1;
+
+            //获取日期 
+            var day1 = today.getDate();
+
+            // getDay获取的是星期几
+            var day2 = today.getDay();
+            day2 = conver(day2);
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            timeshow.innerHTML = year + "年 " + month + "月 " + day1 + "日 " + day2 + " " + h + ": " + m + ": " + s;
+            // setTimeout(() => {
+            //     f1();
+            // }, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0 " + i
+            }
+            return i;
+        }
+
+        function conver(i) {
+            switch (i) {
+                case 1:
+                    return "Monday ";
+                    break;
+                case 2:
+                    return "Tuesday ";
+                    break;
+                case 3:
+                    return "Wensday ";
+                    break;
+                case 4:
+                    return "Thursday";
+                    break;
+                case 5:
+                    return "Friday";
+                    break;
+                case 6:
+                    return "Sataurday";
+                    break;
+                case 0:
+                    return "Sunday";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
